@@ -1,0 +1,16 @@
+# Apple
+.DS_Store
+
+# Node
+node_modules/
+package-lock.json
+
+# VSCode
+.vscode
+
+# App
+log.json
+public/bundle*
+
+# Private
+/*.private.js
