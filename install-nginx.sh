@@ -27,17 +27,17 @@ ls -lha
 cp -f ./domain.template.conf ./$DOMAIN.conf
 cp -f ./include.template.conf ./include.conf
 
-sed -i "s/%DOMAIN%/$DOMAIN/g" ./$DOMAIN.conf
-sed -i "s/%ROOT%/$ROOT/g" ./$DOMAIN.conf
+sed -i "s#%DOMAIN%#$DOMAIN#g" ./$DOMAIN.conf
+sed -i "s#%ROOT%#$ROOT#g" ./$DOMAIN.conf
 
-sed -i "s/%PUBLIC%/$PUBLIC/g" ./include.conf
-sed -i "s/%PORT%/$PORT/g" ./include.conf
+sed -i "s#%PUBLIC%#$PUBLIC#g" ./include.conf
+sed -i "s#%PORT%#$PORT#g" ./include.conf
 
 # Create symlink to nginx config
 cd /etc/nginx/sites-enabled
 rm default > /dev/null 2>&1
 rm $DOMAIN.conf > /dev/null 2>&1
-ln -s /var/www/$DOMAIN/nginx/$DOMAIN.conf .
+ln -s $ROOT/nginx/$DOMAIN.conf .
 cd -
 
 # Install certbot (snap)
